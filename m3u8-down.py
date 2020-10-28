@@ -112,12 +112,11 @@ if __name__=="__main__":
     m3u8_url=opt
     threads=int(sys.argv[-1])
     file_name=sys.argv[2]
-    file_index=".mp4"
     tiem1=time.time()
     down=Down_Ts(m3u8_url,threads)
     ts_list= down.get_ts_list()
     down.get_content_list(ts_list)
-    down.write_content_list(file_name+file_index)
+    down.write_content_list(file_name)
     time=time.time()-tiem1
     print("\n总耗时：%.1d"%time+"s")
     file_size=down.get_file_size()
